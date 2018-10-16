@@ -1,0 +1,9 @@
+#docker build  -t hub.cloud.ctripcorp.com/mcdbase/mcd-general-slave-nodejs .
+docker build  -t hub.cloud.ctripcorp.com/mcdbase/mcd-general-slave-android .
+
+docker push hub.cloud.ctripcorp.com/mcdbase/mcd-general-slave-nodejs
+
+##start sdk volume
+docker run -it -d -v /home/deploy/build:/home/deploy/build --name sdk hub.cloud.ctripcorp.com/build/centos:7.1.1503 /bin/bash
+##start test contain
+docker run -p 8022:22 --volumes-from sdk -d hub.cloud.ctripcorp.com/mcdbase/mcd-general-slave-nodejs

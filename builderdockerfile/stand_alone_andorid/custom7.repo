@@ -1,0 +1,7 @@
+# ctrip custom yum repos
+[custom]
+name=CentOS-$releasever - Custom
+baseurl=http://mirrors.sh.ctriptravel.com/custom/$releasever/extras/$basearch/
+gpgcheck=0
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
